@@ -4,8 +4,19 @@ import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-
+import { useStore } from '../store/useStore';
+import { useEffect } from 'react';
 export default function HomeScreen() {
+  const { data, setData } = useStore();
+
+  useEffect(() => {
+    // Simula una llamada a una API
+    fetch('https://api.euskadi.eus/culture/events/v1.0/events?_elements=20&_page=1')
+      .then((response) => response.json())
+      .then((data) => setData(data))
+      .catch((error) => console.error('Error:', error));
+  }, [setData]);
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
