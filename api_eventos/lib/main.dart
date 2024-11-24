@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './screens/home_screen.dart';
-import './screens/datails_screen.dart';
 import './screens/form_screen.dart';
+import './screens/datails_screen.dart';
 
 void main() {
   runApp(MyApp());
